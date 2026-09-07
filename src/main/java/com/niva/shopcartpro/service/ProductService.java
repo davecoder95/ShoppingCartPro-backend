@@ -1,93 +1,82 @@
 
 package com.niva.shopcartpro.service;
 
+import com.niva.shopcartpro.repository.ProductRepository;
 import com.niva.shopcartpro.dto.ProductRequest;
 import com.niva.shopcartpro.model.Product;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class ProductService {
 
-    private final List<Product> products = new ArrayList<>(
-            List.of(
-                    new Product(1L, "Laptop", 999.99),
-                    new Product(2L, "Keyboard", 79.99),
-                    new Product(3L, "Mouse", 39.99)));
+    /*
+     * private final List<Product> products = new ArrayList<>(
+     * List.of(
+     * new Product(1L, "Laptop", BigDecimal.valueOf(999.99)),
+     * new Product(2L, "Keyboard", BigDecimal.valueOf(79.99)),
+     * new Product(3L, "Mouse", BigDecimal.valueOf(39.99))
+     * ));
+     */
+    private final ProductRepository productRepository;
+
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
     public List<Product> getProducts() {
-        return products;
+        return productRepository.findAll();
     }
 
     public Product getProductById(Long id) {
 
-        for (Product product : products) {
-
-            if (product.getId().equals(id)) {
-                return product;
-            }
-        }
-
-        throw new ResponseStatusException(
-                HttpStatus.NOT_FOUND,
-                "Product not found");
+        return productRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(
+                        HttpStatus.NOT_FOUND,
+                        "Product not found"));
     }
 
     public Product createProduct(ProductRequest request) {
 
         Product product = new Product();
 
-        product.setId(generateProductId());
         product.setName(request.getName());
         product.setPrice(request.getPrice());
 
-        products.add(product);
+        return productRepository.save(product);
 
-        return product;
     }
 
     public Product updateProduct(Long id, ProductRequest request) {
 
-        for (Product product : products) {
+        Product product = productRepository.findById(id).orElse(null);
 
-            if (product.getId().equals(id)) {
-
-                product.setName(request.getName());
-                product.setPrice(request.getPrice());
-
-                return product;
-            }
+        if (product == null) {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND,
+                    "Product not found");
         }
 
-        throw new ResponseStatusException(
-                HttpStatus.NOT_FOUND,
-                "Product not found");
+        product.setName(request.getName());
+        product.setPrice(request.getPrice());
+
+        return productRepository.save(product);
     }
 
     public void deleteProduct(Long id) {
 
-        for (Product product : products) {
+        Product product = productRepository.findById(id).orElse(null);
 
-            if (product.getId().equals(id)) {
-                products.remove(product);
-                return;
-            }
+        if (product == null) {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND,
+                    "Product not found");
         }
 
-        throw new ResponseStatusException(
-                HttpStatus.NOT_FOUND,
-                "Product not found");
+        productRepository.delete(product);
     }
 
-    private Long generateProductId() {
-
-        return products.stream()
-                .mapToLong(Product::getId)
-                .max()
-                .orElse(0) + 1;
-    }
 }
