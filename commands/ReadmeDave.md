@@ -19,23 +19,23 @@ Main technologies:
 * Docker
 * Spring Security
 
+* Built a Spring Boot REST API backend for an e-commerce application called ShopCartPro.
+* Structured the project using Controller → Service → Repository → Database architecture.
+* Created the Product module with full CRUD operations: Create, Read, Update, and Delete.
+* Created the Order module with Order and OrderItem entities and tested order creation and retrieval.
+* Created the User module with CUSTOMER and ADMIN roles.
+* Connected the Spring Boot application to a PostgreSQL database named shopcartpro_db.
+* Used Spring Data JPA and Hibernate to map Java entities to PostgreSQL tables.
+* Tested Product, Order, and User REST APIs using JSON request data.
+* Used Maven to run, test, build, and package the Spring Boot application as a JAR.
+* Used Git and GitHub for version control, including staging, committing, pulling, and pushing changes.
+* Created a Dockerfile and packaged the Spring Boot application into a Docker image.
+* Created and managed a Docker container running the ShopCartPro backend.
+* Connected the Dockerized backend to PostgreSQL running on the Windows host using host.docker.internal.
+* Practiced Docker volumes safely using a separate test volume and learned the difference between * images, containers, and persistent volumes.
+* Final security phase: implement Spring Security with password hashing, authentication, authorization, and CUSTOMER/ADMIN role-based access control.
 
-Built a Spring Boot REST API backend for an e-commerce application called ShopCartPro.
-Structured the project using Controller → Service → Repository → Database architecture.
-Created the Product module with full CRUD operations:
-Create, Read, Update, and Delete.
-Created the Order module with Order and OrderItem entities and tested order creation and retrieval.
-Created the User module with CUSTOMER and ADMIN roles.
-Connected the Spring Boot application to a PostgreSQL database named shopcartpro_db.
-Used Spring Data JPA and Hibernate to map Java entities to PostgreSQL tables.
-Tested Product, Order, and User REST APIs using JSON request data.
-Learned Maven commands to run, test, build, and package the Spring Boot application as a JAR.
-Used Git and GitHub for version control, including staging, committing, pulling, and pushing project changes.
-Created a Dockerfile and packaged the Spring Boot application into a Docker image.
-Created and managed a Docker container running the ShopCartPro backend.
-Connected the Dockerized backend to PostgreSQL running on the Windows host using host.docker.internal.
-Practiced Docker volumes safely using a separate test volume and learned the difference between containers, images, and persistent volumes.
-Final security phase: implement Spring Security with password hashing, authentication, authorization, and CUSTOMER/ADMIN role-based access control.
+
 
 PROJECT ARCHITECTURE:
 
