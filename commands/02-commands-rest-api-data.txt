@@ -1,0 +1,146 @@
+========================================
+SHOPCARTPRO - API TEST DATA
+========================================
+
+
+========================================
+PRODUCT API
+========================================
+
+# GET - Get all products
+GET http://localhost:8080/products
+
+
+# GET - Get product by ID
+GET http://localhost:8080/products/1
+
+
+# POST - Create product
+POST http://localhost:8080/products
+
+{
+  "name": "Laptop",
+  "price": 999.99
+}
+
+
+# POST - Create another product
+POST http://localhost:8080/products
+
+{
+  "name": "Wireless Mouse",
+  "price": 29.99
+}
+
+
+# PUT - Update product
+PUT http://localhost:8080/products/1
+
+{
+  "name": "Gaming Laptop",
+  "price": 1199.99
+}
+
+
+# DELETE - Delete product
+DELETE http://localhost:8080/products/1
+
+
+
+========================================
+ORDER API
+========================================
+
+# GET - Get all orders
+GET http://localhost:8080/orders
+
+
+# GET - Get order by ID
+GET http://localhost:8080/orders/1
+
+
+# POST - Create order with 1 item
+POST http://localhost:8080/orders
+
+{
+  "orderDate": "2026-09-08T20:00:00",
+  "totalAmount": 49.99,
+  "status": "PLACED",
+  "items": [
+    {
+      "productId": 1,
+      "quantity": 1,
+      "price": 49.99
+    }
+  ]
+}
+
+
+# POST - Create order with 3 items
+POST http://localhost:8080/orders
+
+{
+  "orderDate": "2026-09-08T22:45:00",
+  "totalAmount": 179.96,
+  "status": "PLACED",
+  "items": [
+    {
+      "productId": 1,
+      "quantity": 1,
+      "price": 49.99
+    },
+    {
+      "productId": 2,
+      "quantity": 2,
+      "price": 39.99
+    },
+    {
+      "productId": 3,
+      "quantity": 1,
+      "price": 49.99
+    }
+  ]
+}
+
+
+# DELETE - Delete order
+DELETE http://localhost:8080/orders/1
+
+
+
+========================================
+USER API
+========================================
+
+# GET - Get all users
+GET http://localhost:8080/users
+
+
+# GET - Get user by ID
+GET http://localhost:8080/users/1
+
+
+# POST - Create CUSTOMER
+POST http://localhost:8080/users
+
+{
+  "name": "John",
+  "email": "john@example.com",
+  "password": "test123",
+  "role": "CUSTOMER"
+}
+
+
+# POST - Create ADMIN
+POST http://localhost:8080/users
+
+{
+  "name": "Alice",
+  "email": "alice@example.com",
+  "password": "admin123",
+  "role": "ADMIN"
+}
+
+
+# DELETE - Delete user
+DELETE http://localhost:8080/users/1

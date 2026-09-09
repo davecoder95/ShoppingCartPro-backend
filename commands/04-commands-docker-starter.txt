@@ -1,0 +1,159 @@
+========================================
+SHOPCARTPRO - DOCKER REFERENCE
+========================================
+
+
+========================================
+BUILD JAR
+========================================
+
+# Create the Spring Boot JAR without running tests
+.\mvnw.cmd clean package -DskipTests
+
+
+========================================
+DOCKER IMAGE
+========================================
+
+# Build a Docker image using the Dockerfile in the current directory
+docker build -t shopcartpro-backend_img .
+
+
+# List Docker images
+docker images
+
+
+========================================
+RUN BACKEND CONTAINER
+========================================
+
+# Create and run the backend container
+docker run --name shopcartpro-backend_container -p 8080:8080 --add-host=host.docker.internal:host-gateway -e SPRING_DATASOURCE_URL="jdbc:postgresql://host.docker.internal:5432/shopcartpro_db" -e SPRING_DATASOURCE_USERNAME="postgres" -e SPRING_DATASOURCE_PASSWORD="welcome1" shopcartpro-backend_img
+
+
+========================================
+CONTAINER - VIEW LOGS
+========================================
+
+# View Spring Boot logs from the container
+docker logs shopcartpro-backend_container
+
+
+# Follow the logs continuously
+docker logs -f shopcartpro-backend_container
+
+
+========================================
+CONTAINER - STATUS
+========================================
+
+# List running containers
+docker ps
+
+
+# List all containers including stopped containers
+docker ps -a
+
+
+========================================
+CONTAINER - STOP / START
+========================================
+
+# Stop the backend container
+docker stop shopcartpro-backend_container
+
+
+# Start the stopped backend container
+docker start shopcartpro-backend_container
+
+
+# Restart the backend container
+docker restart shopcartpro-backend_container
+
+
+========================================
+CONTAINER - REMOVE
+========================================
+
+# Remove the backend container
+docker rm shopcartpro-backend_container
+
+
+# Force remove a running/stopped container
+docker rm -f shopcartpro-backend_container
+
+
+========================================
+IMAGE - REMOVE
+========================================
+
+# Remove the backend Docker image
+docker rmi shopcartpro-backend_img
+
+
+# Force remove the backend Docker image
+docker rmi -f shopcartpro-backend_img
+
+
+========================================
+USEFUL DOCKER COMMANDS
+========================================
+
+# Show Docker version
+docker --version
+
+
+# Show Docker system information
+docker info
+
+
+# List Docker images
+docker images
+
+
+# List running containers
+docker ps
+
+
+# List all containers
+docker ps -a
+
+
+# List Docker volumes
+docker volume ls
+
+
+# List Docker networks
+docker network ls
+
+
+========================================
+TYPICAL DOCKER WORKFLOW
+========================================
+
+# Build the Spring Boot JAR
+.\mvnw.cmd clean package -DskipTests
+
+
+# Build the Docker image
+docker build -t shopcartpro-backend_img .
+
+
+# Run the backend container
+docker run --name shopcartpro-backend_container -p 8080:8080 --add-host=host.docker.internal:host-gateway -e SPRING_DATASOURCE_URL="jdbc:postgresql://host.docker.internal:5432/shopcartpro_db" -e SPRING_DATASOURCE_USERNAME="postgres" -e SPRING_DATASOURCE_PASSWORD="welcome1" shopcartpro-backend_img
+
+
+# Check the running container
+docker ps
+
+
+# View Spring Boot logs
+docker logs shopcartpro-backend_container
+
+
+# Stop the backend container
+docker stop shopcartpro-backend_container
+
+
+# Start the backend container again
+docker start shopcartpro-backend_container

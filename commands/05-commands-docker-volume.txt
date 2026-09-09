@@ -1,0 +1,62 @@
+========================================
+DOCKER VOLUME COMMANDS
+========================================
+
+# 1. Create a Docker volume
+docker volume create shopcartpro-test-volume
+
+
+# 2. List all Docker volumes
+docker volume ls
+
+
+# 3. Inspect a volume (see details)
+docker volume inspect shopcartpro-test-volume
+
+
+# 4. Run a container and mount the volume
+docker run -it --name volume-test -v shopcartpro-test-volume:/data ubuntu bash
+
+
+# 5. Inside the container: create a file in the volume
+echo "Hello from Docker volume" > /data/test.txt
+
+
+# 6. Inside the container: read the file
+cat /data/test.txt
+
+
+# 7. Exit the container
+exit
+
+
+# 8. List all containers, including stopped containers
+docker ps -a
+
+
+# 9. Remove the container (volume remains)
+docker rm volume-test
+
+
+# 10. Run another container using the same volume
+docker run -it --name volume-test-2 -v shopcartpro-test-volume:/data ubuntu bash
+
+
+# 11. Inside the new container: verify the old data still exists
+cat /data/test.txt
+
+
+# 12. Exit the container
+exit
+
+
+# 13. Remove the second test container
+docker rm volume-test-2
+
+
+# 14. Delete the volume (WARNING: deletes data stored in this volume)
+docker volume rm shopcartpro-test-volume
+
+
+# 15. Remove unused Docker volumes
+docker volume prune

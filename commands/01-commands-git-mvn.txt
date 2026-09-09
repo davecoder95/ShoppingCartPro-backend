@@ -1,0 +1,225 @@
+========================================
+SHOPCARTPRO - PROJECT REFERENCE
+========================================
+
+# GitHub repository
+ShoppingCartPro-backend
+
+# Spring Boot project
+shopcartpro
+
+# Java package
+com.niva.shopcartpro
+
+
+========================================
+GIT - DAILY COMMANDS
+========================================
+
+# Check the current Git status
+git status
+
+# Add all changed/new files
+git add .
+
+# Commit the changes
+git commit -m "Your commit message"
+
+# Push commits to GitHub
+git push origin main
+
+# View commit history in compact format
+git log --oneline
+
+# Get the latest changes from GitHub
+git pull
+
+
+========================================
+GIT - CREATE NEW REPOSITORY
+========================================
+
+# Initialize Git in the project folder
+git init
+
+# Create README.md
+echo "# ShoppingCartPro-backend" >> README.md
+
+# Add README.md to staging
+git add README.md
+
+# Create the first commit
+git commit -m "first commit"
+
+# Rename the current branch to main
+git branch -M main
+
+# Connect the local project to GitHub
+git remote add origin https://github.com/davecoder95/ShoppingCartPro-backend.git
+
+# Push the main branch to GitHub and set upstream
+git push -u origin main
+
+
+========================================
+GIT - CONNECT EXISTING PROJECT
+========================================
+
+# Add the GitHub repository as the remote
+git remote add origin https://github.com/davecoder95/ShoppingCartPro-backend.git
+
+# Rename the current branch to main
+git branch -M main
+
+# Push the project to GitHub and set upstream
+git push -u origin main
+
+# Verify the GitHub remote
+git remote -v
+
+
+========================================
+GIT - BASIC WORKFLOW
+========================================
+
+# Check what has changed
+git status
+
+# Add all changes
+git add .
+
+# Check what is staged
+git status
+
+# Commit the staged changes
+git commit -m "Describe the changes"
+
+# Push the commit to GitHub
+git push origin main
+
+
+========================================
+GIT - USEFUL COMMANDS
+========================================
+
+# Show configured Git remotes
+git remote -v
+
+# Show compact commit history
+git log --oneline
+
+# Download and merge the latest GitHub changes
+git pull
+
+# Show the current branch
+git branch
+
+# Show all branches
+git branch -a
+
+
+========================================
+SPRING BOOT - RUN APPLICATION
+========================================
+
+# Run the Spring Boot application using Maven Wrapper
+.\mvnw.cmd spring-boot:run
+
+# Run tests
+.\mvnw.cmd test
+
+
+========================================
+SPRING BOOT - BUILD
+========================================
+
+# Clean previous build files and create a new package
+.\mvnw.cmd clean package
+
+
+========================================
+SPRING BOOT - RUN JAR
+========================================
+
+# Run the packaged JAR file
+java -jar target\shopcartpro-0.0.1-SNAPSHOT.jar
+
+
+========================================
+API - PRODUCT
+========================================
+
+# Get all products
+GET http://localhost:8080/products
+
+# Get product by ID
+GET http://localhost:8080/products/1
+
+# Create a product
+POST http://localhost:8080/products
+
+# Update a product
+PUT http://localhost:8080/products/1
+
+# Delete a product
+DELETE http://localhost:8080/products/1
+
+
+========================================
+API - ORDER
+========================================
+
+# Get all orders
+GET http://localhost:8080/orders
+
+# Get order by ID
+GET http://localhost:8080/orders/1
+
+# Create an order
+POST http://localhost:8080/orders
+
+# Delete an order
+DELETE http://localhost:8080/orders/1
+
+
+========================================
+API - USER
+========================================
+
+# Get all users
+GET http://localhost:8080/users
+
+# Get user by ID
+GET http://localhost:8080/users/1
+
+# Create a user
+POST http://localhost:8080/users
+
+# Delete a user
+DELETE http://localhost:8080/users/1
+
+
+========================================
+TYPICAL DEVELOPMENT WORKFLOW
+========================================
+
+# Run the application
+.\mvnw.cmd spring-boot:run
+
+# Run automated tests
+.\mvnw.cmd test
+
+# Build the project
+.\mvnw.cmd clean package
+
+# Check Git changes
+git status
+
+# Stage all changes
+git add .
+
+# Commit changes
+git commit -m "Describe the changes"
+
+# Push changes to GitHub
+git push origin main
