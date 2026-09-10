@@ -1,5 +1,7 @@
 package com.niva.shopcartpro.service;
 
+import java.util.List;
+
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -7,8 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.niva.shopcartpro.model.User;
 import com.niva.shopcartpro.repository.UserRepository;
-
-import java.util.List;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
