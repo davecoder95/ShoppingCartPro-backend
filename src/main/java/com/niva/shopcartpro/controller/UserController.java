@@ -1,9 +1,13 @@
 package com.niva.shopcartpro.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.*;
 
+import com.niva.shopcartpro.dto.UserRequestDTO;
+import com.niva.shopcartpro.dto.UserResponseDTO;
+import com.niva.shopcartpro.mapper.UserMapper;
 import com.niva.shopcartpro.model.User;
 import com.niva.shopcartpro.service.UserService;
 
@@ -18,18 +22,40 @@ public class UserController {
     }
 
     @PostMapping
-    public User createUser(@RequestBody User user) {
-        return userService.createUser(user);
+    public UserResponseDTO createUser(@RequestBody UserRequestDTO request) {
+
+        User user = new User();
+
+        user.setName(request.getName());
+        user.setEmail(request.getEmail());
+        user.setPassword(request.getPassword());
+        user.setRole(request.getRole());
+
+        User savedUser = userService.createUser(user);
+
+        return UserMapper.toDTO(savedUser);
     }
 
     @GetMapping
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
+    public List<UserResponseDTO> getAllUsers() {
+
+        List<User> users = userService.getAllUsers();
+
+        List<UserResponseDTO> response = new ArrayList<>();
+
+        for (User user : users) {
+            response.add(UserMapper.toDTO(user));
+        }
+
+        return response;
     }
 
     @GetMapping("/{id}")
-    public User getUserById(@PathVariable Long id) {
-        return userService.getUserById(id);
+    public UserResponseDTO getUserById(@PathVariable Long id) {
+
+        User user = userService.getUserById(id);
+
+        return UserMapper.toDTO(user);
     }
 
     @DeleteMapping("/{id}")

@@ -1,5 +1,19 @@
 # ShopCartPro – Security
 
+
+User module checkpoint
+✅ User entity
+✅ UserRepository
+✅ UserService
+✅ UserController
+✅ UserRequestDTO
+✅ UserResponseDTO
+✅ UserMapper
+✅ BCrypt password hashing
+✅ Database authentication
+⏸️ Role authorization — later
+
+
 ## 1. Spring Security
 
 Added Spring Security using:
