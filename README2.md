@@ -19,6 +19,26 @@ Current development includes:
 * Stateless authentication
 * Docker support
 
+
+# Details 
+## Project Status
+
+Current development includes:
+
+* **Product CRUD REST APIs** — Create, read, update, and delete products through REST endpoints.
+* **Order management** — Create and retrieve customer orders with multiple order items, quantities, prices, totals, and order status.
+* **User management** — User registration and CRUD operations using request/response DTOs.
+* **PostgreSQL + Spring Data JPA / Hibernate** — Persistent relational data storage with entity mapping and repository-based database access.
+* **Unit testing with JUnit 5 and Mockito** — Isolated service-layer testing using mocked dependencies.
+* **Integration testing with MockMvc** — Testing REST endpoints through the Spring application context.
+* **Swagger / OpenAPI** — Interactive API documentation and endpoint testing.
+* **Spring Security** — Authentication and endpoint protection for the REST API.
+* **BCrypt password hashing** — User passwords are securely hashed before being stored in the database.
+* **JWT authentication** — Login generates a signed JWT used to authenticate subsequent requests.
+* **Stateless authentication** — Authentication is maintained through JWT Bearer tokens rather than server-side HTTP sessions.
+* **Docker support** — Spring Boot application packaged and run as a Docker container with external PostgreSQL connectivity.
+
+
 Future development includes role-based authorization, Docker Compose, CI/CD, and AWS deployment.
 
 ## Technology Stack
